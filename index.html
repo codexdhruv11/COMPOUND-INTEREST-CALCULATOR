@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Compound Interest Calculator</h1>
+            <p>Calculate your financial growth over time with the power of compounding</p>
+        </header>
+        
+        <div class="calculator-container">
+            <div class="input-section">
+                <h2 class="section-title"><i class="fas fa-calculator"></i> Investment Details</h2>
+                
+                <div class="input-group">
+                    <label for="initial-amount">Initial Investment ($)</label>
+                    <input type="number" id="initial-amount" min="0" value="10000">
+                </div>
+                
+                <div class="input-group">
+                    <label for="monthly-contribution">Monthly Contribution ($)</label>
+                    <input type="number" id="monthly-contribution" min="0" value="500">
+                </div>
+                
+                <div class="input-group">
+                    <label for="years">Investment Period (Years)</label>
+                    <div class="slider-container">
+                        <input type="range" id="years" min="1" max="50" value="10">
+                        <span class="range-value" id="years-value">10</span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="interest-rate">Annual Interest Rate (%)</label>
+                    <div class="slider-container">
+                        <input type="range" id="interest-rate" min="1" max="30" value="7">
+                        <span class="range-value" id="interest-rate-value">7%</span>
+                    </div>
+                </div>
+                
+                <button id="calculate-btn" class="btn">
+                    <i class="fas fa-rocket"></i> Calculate Projection
+                </button>
+                
+                <div id="success-message" class="success-message">
+                    <i class="fas fa-check-circle"></i> Calculation completed successfully!
+                </div>
+                
+                <div id="error-message" class="error-message">
+                    <i class="fas fa-exclamation-circle"></i> Please enter valid investment values
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h2 class="section-title"><i class="fas fa-chart-line"></i> Results Summary</h2>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Final Balance</h3>
+                        <div class="result-value" id="compounded-value">$0.00</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Total Contributions</h3>
+                        <div class="result-value" id="total-contributions">$0.00</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Interest Earned</h3>
+                        <div class="result-value" id="interest-earned">$0.00</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Annual Growth</h3>
+                        <div class="result-value" id="annual-growth">0.00%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="results-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="yearly-breakdown">
+            <div class="breakdown-title">
+                <h2 class="section-title"><i class="fas fa-table"></i> Yearly Breakdown</h2>
+            </div>
+            <div class="table-container">
+                <table id="breakdown-table">
+                    <thead>
+                        <tr>
+                            <th>YEAR</th>
+                            <th>START BALANCE</th>
+                            <th>CONTRIBUTIONS</th>
+                            <th>INTEREST</th>
+                            <th>END BALANCE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="breakdown-body">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <footer>
+            <p><i class="fas fa-star"></i> Dhruv Kaushik | Plan your financial future with precision <i class="fas fa-star"></i></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
